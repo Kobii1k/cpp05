@@ -6,13 +6,13 @@
 /*   By: mgagne <mgagne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:15:22 by mgagne            #+#    #+#             */
-/*   Updated: 2024/02/20 15:49:43 by mgagne           ###   ########.fr       */
+/*   Updated: 2024/02/20 15:54:37 by mgagne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-int	main( void )
+int	main()
 {
 	try
 	{
@@ -30,10 +30,9 @@ int	main( void )
 		std::cout << tyler;
 	}
 
-	catch ( std::exception & error )
+	catch (std::exception &error)
 	{
 		std::cout << error.what( );
 	}
-
-	return ( 0 );
+	return (0);
 }
