@@ -6,11 +6,12 @@
 /*   By: mgagne <mgagne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 14:38:47 by mgagne            #+#    #+#             */
-/*   Updated: 2024/03/05 14:43:45 by mgagne           ###   ########.fr       */
+/*   Updated: 2024/03/05 14:40:05 by mgagne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
+# include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void) : name("not defined"), grade(150)
 {
@@ -71,4 +72,17 @@ std::ostream	&operator<<(std::ostream &os, const Bureaucrat &src)
 {
 	os << src.getName() << ", bureaucrat grade " << src.getGrade() << std::endl;
 	return (os);
+}
+
+void		Bureaucrat::signForm(Form &src)
+{
+	try
+	{
+		src.beSigned(*this);
+		std::cout << name << " signed form : " << src.getName() << std::endl;
+	}
+	catch ( std::exception & error )
+	{
+		std::cerr << name << " couldn't sign " << src.getName() << " because " << error.what();
+	}
 }
