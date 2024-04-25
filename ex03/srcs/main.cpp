@@ -6,7 +6,7 @@
 /*   By: mgagne <mgagne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 15:15:22 by mgagne            #+#    #+#             */
-/*   Updated: 2024/04/25 18:06:56 by mgagne           ###   ########.fr       */
+/*   Updated: 2024/04/25 18:06:30 by mgagne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int	main(void)
 {
@@ -58,6 +59,17 @@ int	main(void)
 		Faa.signForm( Attestation_1 );
 		Reb.signForm( Attestation_2 );
 		lil.signForm( Attestation_3 );
+
+		std::cout << std::endl;
+
+		Intern coffeeMaker;
+		AForm* randomForm;
+		randomForm = coffeeMaker.makeForm("PresidentialPardonForm", "Bush");
+		Faa.signForm(*randomForm);
+		Bob.executeForm(*randomForm);
+
+		if (randomForm)
+			delete randomForm;
 	}
 	catch ( std::exception & error )
 	{
