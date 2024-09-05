@@ -34,7 +34,7 @@ SRC				=	$(addprefix $(DIR_SRC),$(LIST_SRC))
 # ------------ COMPILATION ------------ #
 
 CPPFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g
-
+CC				=	c++
 DEP_FLAGS		=	-MMD -MP
 
 # -------------  COMMANDS ------------- #
@@ -50,7 +50,7 @@ all:			$(NAME)
 # ---------- VARIABLES RULES ---------- #
 
 $(NAME):		$(OBJ)
-			$(CXX) $(CPPFLAGS) -o $(NAME) $(OBJ)
+			$(CC) $(CPPFLAGS) -o $(NAME) $(OBJ)
 
 # ---------- COMPILED RULES ----------- #
 
@@ -58,7 +58,7 @@ $(NAME):		$(OBJ)
 
 $(DIR_BUILD)%.o: %.cpp
 			mkdir -p $(shell dirname $@)
-			$(CXX) $(CPPFLAGS) $(DEP_FLAGS) -I $(DIR_INCLUDE) -c $< -o $@
+			$(CC) $(CPPFLAGS) $(DEP_FLAGS) -I $(DIR_INCLUDE) -c $< -o $@
 
 .PHONY:	clean
 clean:
